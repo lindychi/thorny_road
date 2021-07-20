@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<form method="POST">
+    {% csrf_token %}
+    <h3>담보물 정보</h3>
+    <table class="w-100">
+        <tr>
+            <td>이름</td>
+            <td><input id="id_collateral_name" type="text" name="collateral_name" /></td>
+        </tr>
+        <tr>
+            <td>신주소</td>
+            <td colspan=3><input type="text" name="collateral_address" class="w-100"/></td>
+        </tr>
+        <tr>
+            <td>구주소</td>
+            <td colspan=3><input type="text" name="collateral_old_address" class="w-100"/></td>
+        </tr>
+        <tr>
+            <td>공급면적</td>
+            <td><input type="text" name="collateral_public_area"/>㎡</td>
+        </tr>
+        <tr>
+            <td>전용면적</td>
+            <td><input type="text" name="collateral_private_area"/>㎡</td>
+        </tr>
+        <tr>
+            <td class="w-25">목적물 세대수</td>
+            <td class="w-25"><input type="text" name="collateral_targetholds"/>세대</td>
+        </tr>
+        <tr>
+            <td class="w-25">총 세대수</td>
+            <td class="w-25"><input type="text" name="collateral_households"/>세대</td>
+        </tr>
+        <tr>
+            <td>층/최고층</td>
+            <td><input type="text" name="collateral_floor" class="w-25"/> / <input type="text" name="collateral_top_floor" class="w-25"/>층</td>
+        </tr>
+        <tr>
+            <td>용적률</td>
+            <td><input type="text" name="collateral_floor_area_ratio"/>%</td>
+        </tr>   
+        <tr>
+            <td>건폐율</td>
+            <td><input type="text" name="collateral_building_cover_ratio"/>%</td>
+        </tr>
+        <tr>
+            <td>건설사</td>
+            <td><input type="text" name="collateral_construction_company"/></td>
+        </tr>
+        <tr>
+            <td>사용승인일</td>
+            <td><input type="text" name="collateral_completion_date" placeholder="0000년 00월 00일"/></td>
+        </tr>
+    </table>
+    </br>   
+
+    <h3>자산 정보</h3>
+    <table class="w-100">
+        <tr>
+            <td class="w-25">구매 가격</td>
+            <td><input type="text" name="asset_purchase_price" />원</td>
+        </tr>
+        <tr>
+            <td>지분율</td>
+            <td><input type="text" name="asset_share_rate" value=100 />%</td>
+        </tr>
+    </table>
+    <div class="d-flex justify-content-end">
+        <input type="submit" class="btn btn btn-success" value="자산 추가">
+    </div>
+</form>
+{% endblock %}
+
+{% block post_script %}
+<script>
+    $("#id_collateral_name").autocomplete({
+        source: "{% url 'thorny_road:ajax_collateral_name' %}",
+        select: function(event, ui) {
+            
+        }
+    })
+</script>
+{% endblock %}

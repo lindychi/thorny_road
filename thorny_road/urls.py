@@ -21,4 +21,8 @@ app_name = 'thorny_road'
 
 urlpatterns = [
     path('', views.index, name='index'),
+
+    path('add_asset/', views.add_asset, name="add_asset"),
+
+    path('ajax_collateral_name/', views.ajax_collateral_name, name="ajax_collateral_name"),
 ]
