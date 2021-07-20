@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="bg-primary p-1 rounded text-light mb-3">
+    <div class="pb-1">
+        <small>{{ request.user }}님 자산</small>
+        <div><strong>370,000,000원</strong></div>
+    </div>
+    <div>
+        <small>{{ request.user }}님 월세액</small>
+        <div><strong>3,400,000원</strong></div>
+    </div>
+</div>
+<div class="rounded mb-3">
+    <h4>자산 리스트</h4>
+    <div class="bg-success text-light rounded p-1">
+        이편한세상 상록
+        <div>지분율 <strong>94.6%</strong></div>
+        <div>자산 상승률 <strong>30%</strong></div>
+    </div>
+</div>
+<div class="rounded mb-3">
+    <h4>부채 리스트</h4>
+    <div class="bg-warning text-dark rounded p-1">
+        이편한세상 상록 대출금
+        <div>금액 <strong>60,000,000원</strong></div>
+        <div>이율 <strong>5.5%</strong></div>
+        <div>계약 종료일 <strong>2022년 3월 25일</strong></div>
+    </div>
+</div>
+{% endblock %}
