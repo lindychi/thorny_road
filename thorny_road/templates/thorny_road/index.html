@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'thorny_road/css/index.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block container %}
 <div class="bg-primary p-1 rounded text-light mb-3">
@@ -18,11 +23,13 @@
         <a class="btn btn-success btn-sm mb-1" href="{% url 'thorny_road:add_asset' %}">+자산 추가</a> 
     </div>
     {% for a in assets %}
-    <div class="bg-success text-light rounded p-1 mb-2">
-        {{ a.collateral.name }}
-        <div>지분율 <strong>{{ a.share_rate }}%</strong></div>
-        <div>자산 상승률 <strong>30%</strong></div>
-    </div>
+    <a href="{% url 'thorny_road:detail_asset' a.id %}" class="block_href">
+        <div class="bg-success text-light rounded p-1 mb-2">
+            {{ a.collateral.name }}
+            <div>지분율 <strong>{{ a.share_rate }}%</strong></div>
+            <div>자산 상승률 <strong>30%</strong></div>
+        </div>
+    </a>
     {% endfor %}
 </div>
 <div class="rounded mb-3">

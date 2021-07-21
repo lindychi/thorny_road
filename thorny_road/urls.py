@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     path('add_asset/', views.add_asset, name="add_asset"),
+    path('detail_asset/<int:aid>/', views.detail_asset, name="detail_asset"),
 
     path('ajax_collateral_name/', views.ajax_collateral_name, name="ajax_collateral_name"),
 ]

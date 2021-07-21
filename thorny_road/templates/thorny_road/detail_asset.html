@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <h3>자산 정보</h3>
+    <table class="w-100 table table-striped">
+        <tr>
+            <th style="min-width:120px;">구매 가격</th>
+            <td class="w-100">{{ asset.purchase_price }}원</td>
+        </tr>
+        <tr>
+            <th>지분율</th>
+            <td>{{ asset.share_rate }}%</td>
+        </tr>
+    </table>
+
+    <h3>담보물 정보</h3>
+    <table class="w-100 table table-striped">
+        <tr>
+            <th style="min-width:120px;">이름</th>
+            <td class="w-100">{{ asset.collateral.name }}</td>
+        </tr>
+        <tr>
+            <th>신주소</th>
+            <td>{{ asset.collateral.address }}</td>
+        </tr>
+        <tr>
+            <th>구주소</th>
+            <td>{{ asset.collateral.old_address }}</td>
+        </tr>
+        <tr>
+            <th>공급면적</th>
+            <td>{{ asset.collateral.public_area }}㎡</td>
+        </tr>
+        <tr>
+            <th>전용면적</th>
+            <td>{{ asset.collateral.private_area }}㎡</td>
+        </tr>
+        <tr>
+            <th>목적물 세대수</th>
+            <td>{{ asset.collateral.targetholds }}세대</td>
+        </tr>
+        <tr>
+            <th>총 세대수</th>
+            <td>{{ asset.collateral.households }}세대</td>
+        </tr>
+        <tr>
+            <th>층/최고층</th>
+            <td>{{ asset.collateral.floor }} / {{ asset.collateral.top_floor }}층</td>
+        </tr>
+        <tr>
+            <th>용적률</th>
+            <td>{{ asset.collateral.floor_area_ratio }}%</td>
+        </tr>   
+        <tr>
+            <th>건폐율</th>
+            <td>{{ asset.collateral.building_cover_ratio }}%</td>
+        </tr>
+        <tr>
+            <th>건설사</th>
+            <td>{{ asset.collateral.construction_company }}</td>
+        </tr>
+        <tr>
+            <th>사용승인일</th>
+            <td>{{ asset.collateral.completion_date }}</td>
+        </tr>
+    </table>
+    </br>
+{% endblock %}
+
+{% block post_script %}
+{% endblock %}

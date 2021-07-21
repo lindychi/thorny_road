@@ -68,3 +68,8 @@ def ajax_collateral_name(request):
         mimetype = 'application/json'
         return HttpResponse(data, mimetype)
     return HttpResponse()
+
+@login_required
+def detail_asset(request, aid):
+    a = Asset.objects.get(owner=request.user, id=aid)
+    return render(request, 'thorny_road/detail_asset.html', {'asset':a})
